@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>松田和雄税理士事務所</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            background-color: #0056b3; /* Darker blue for active tab */
+            color: white;
+        }
+        /* Custom styles for professional appearance */
+        .header-bg {
+            background-image: linear-gradient(to right, #0056b3, #007bff);
+        }
+        .section-bg {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        .contact-info {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-8">
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow-lg overflow-hidden">
+        <!-- Header Section -->
+        <header class="header-bg text-white p-6 rounded-t-xl">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-2">松田和雄税理士事務所</h1>
+            <p class="text-xl md:text-2xl text-center">相続税専門税理士（国税ＯＢ税理士）</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="bg-gray-100 p-4 border-b border-gray-200">
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                <button class="tab-button active px-4 py-2 rounded-lg text-sm md:text-base font-semibold transition-colors duration-200 bg-blue-600 text-white hover:bg-blue-700" data-tab="home">トップページ</button>
+                <button class="tab-button px-4 py-2 rounded-lg text-sm md:text-base font-semibold transition-colors duration-200 text-blue-800 hover:bg-blue-100" data-tab="services">業務案内</button>
+                <button class="tab-button px-4 py-2 rounded-lg text-sm md:text-base font-semibold transition-colors duration-200 text-blue-800 hover:bg-blue-100" data-tab="about">事務所案内</button>
+                <button class="tab-button px-4 py-2 rounded-lg text-sm md:text-base font-semibold transition-colors duration-200 text-blue-800 hover:bg-blue-100" data-tab="profile">経歴</button>
+                <button class="tab-button px-4 py-2 rounded-lg text-sm md:text-base font-semibold transition-colors duration-200 text-blue-800 hover:bg-blue-100" data-tab="fees">ご利用料金</button>
+                <button class="tab-button px-4 py-2 rounded-lg text-sm md:text-base font-semibold transition-colors duration-200 text-blue-800 hover:bg-blue-100" data-tab="contact">お問い合わせ</button>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="p-6 md:p-8">
+            <!-- Home Tab Content -->
+            <section id="home" class="tab-content active section-bg p-6 mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご挨拶</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    令和５年７月　税務署資産課税部門統括国税調査官を最後に国税の職場を早期退職いたしました。
+                    国税職員としての約３６年間のうち２７年間を資産課税部門（相続税・贈与税・譲渡所得）の事務（内部事務、調査事務、審理事務、納税猶予事務、不服審査事務等）に従事しました。<br><br>
+                    今後は、これまでの経験を活かし、相続税専門の税理士として社会に貢献できればと思っておりますので、相続税のご相談などありましたら、お気軽にご連絡ください。
+                </p>
+            </section>
+
+            <!-- Services Tab Content -->
+            <section id="services" class="tab-content section-bg p-6 mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">業務案内</h2>
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">資産税（相続税等）専門</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6 ml-4">
+                    <li>面接相談業務</li>
+                    <li>相続税申告書作成業務</li>
+                    <li>贈与税申告書作成業務</li>
+                    <li>譲渡所得申告書作成業務</li>
+                </ul>
+            </section>
+
+            <!-- About Us Tab Content -->
+            <section id="about" class="tab-content section-bg p-6 mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">事務所案内</h2>
+                <div class="space-y-2 text-gray-700 mb-6">
+                    <p><strong class="text-gray-800">事務所名:</strong> 松田和雄税理士事務所</p>
+                    <p><strong class="text-gray-800">代表者名:</strong> 税理士　松田和雄</p>
+                    <p><strong class="text-gray-800">所在地:</strong> 〒260-0042 千葉県千葉市中央区椿森5丁目4-5</p>
+                    <p><strong class="text-gray-800">電話番号:</strong> 043-379-5880</p>
+                    <p><strong class="text-gray-800">FAX番号:</strong> 043-379-5880</p>
+                    <p><strong class="text-gray-800">メールアドレス:</strong> matsudazei@lp.mjs-hp.jp</p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg mt-6">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-2">アクセス</h3>
+                    <p class="text-blue-700">ＪＲ総武本線東千葉駅　徒歩５分</p>
+                    <div class="mt-4 p-4 bg-white border border-blue-200 rounded-md text-center text-gray-500">
+                        <!-- Google Maps embed will go here -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.4550882196615!2d140.11979407632644!3d35.73602562479482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602283e3519b5b29%3A0x6b2b6b2b6b2b6b2b!2z44CSMjYwLTAwNDIg5Z-u5bGx55yM5bO25Z-O5biC5Lit5aSa5Yy65bmz5q-U77yS77yR77yR77yR!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+                            width="100%"
+                            height="300"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Profile Tab Content -->
+            <section id="profile" class="tab-content section-bg p-6 mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">経歴・職歴</h2>
+                <!-- Profile Image removed from here -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">経歴</h3>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li>1966年6月 長崎県島原市生まれ</li>
+                            <li>1985年3月 長崎県立島原高等学校卒業</li>
+                            <li>1992年3月 専修大学商学部卒業</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">職歴</h3>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li>1986年4月 農林水産省長崎食糧事務所採用</li>
+                            <li>1987年2月 一身上の都合により辞職</li>
+                            <li>1987年4月 国税庁福岡国税局採用</li>
+                            <li>2023年7月 一身上の都合により辞職</li>
+                            <li>2023年11月 税理士登録</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fees Tab Content -->
+            <section id="fees" class="tab-content section-bg p-6 mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご利用料金</h2>
+                <div class="space-y-6 text-gray-700">
+                    <div><h3 class="text-xl font-semibold text-gray-800 mb-2">面接相談報酬</h3><p class="ml-4">11,000円（消費税込）</p><p class="ml-4 text-blue-600 font-medium">ただし、初回無料</p></div>
+                    <div><h3 class="text-xl font-semibold text-gray-800 mb-2">相続税申告報酬</h3><p class="ml-4">遺産価格の1.1％（消費税込）</p><p class="ml-4 text-sm text-gray-600">※相続財産の種類や相続人数等により報酬の金額を計算します。</p></div>
+                    <div><h3 class="text-xl font-semibold text-gray-800 mb-2">贈与税申告報酬</h3><p class="ml-4">申告の内容により異なります。</p><p class="ml-4 text-sm text-gray-600">事前にお見積りいたします。</p></div>
+                    <div><h3 class="text-xl font-semibold text-gray-800 mb-2">譲渡所得申告報酬</h3><p class="ml-4">申告の内容により異なります。</p><p class="ml-4 text-sm text-gray-600">事前にお見積りいたします。</p></div>
+                </div>
+            </section>
+
+            <!-- Contact Tab Content -->
+            <section id="contact" class="tab-content section-bg p-6 mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">お問い合わせ</h2>
+                <p class="text-gray-700 mb-6">相続税に関するご相談などありましたら、お気軽にご連絡ください。</p>
+
+                <div class="mt-8 pt-8 border-t border-gray-200 text-center space-y-6">
+                    <div class="p-4 bg-blue-50 rounded-lg">
+                        <p class="text-lg font-semibold text-blue-800 mb-2">お電話でのお問い合わせ</p>
+                        <a href="tel:043-379-5880" class="text-4xl font-bold text-blue-700 hover:underline">043-379-5880</a>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-lg">
+                        <p class="text-lg font-semibold text-blue-800 mb-2">メールでのお問い合わせ</p>
+                        <a href="mailto:matsudazei@lp.mjs-hp.jp" class="text-xl font-bold text-blue-700 hover:underline">matsudazei@lp.mjs-hp.jp</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="bg-gray-800 text-white text-center p-4 rounded-b-xl">
+            <p>&copy; 2025 松田和雄税理士事務所. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            // Tab switching logic
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
+                    tabButtons.forEach(btn => btn.classList.add('text-blue-800', 'hover:bg-blue-100'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    button.classList.add('active', 'bg-blue-600', 'text-white');
+                    button.classList.remove('text-blue-800', 'hover:bg-blue-100');
+                    
+                    const targetTab = button.dataset.tab;
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

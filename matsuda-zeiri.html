@@ -74,8 +74,9 @@
             font-weight: 600;
         }
         /* Ensure normal font weight and size for paragraphs within tab content */
-        .tab-content p {
-            font-weight: normal; /* Ensure normal weight for paragraphs */
+        .tab-content p,
+        .tab-content ul li { /* Added ul li to ensure list items are also normal weight */
+            font-weight: normal; /* Ensure normal weight for paragraphs and list items */
             font-size: 1rem; /* Ensure consistent base font size */
         }
         /* Responsive adjustments for navigation */
@@ -166,7 +167,7 @@
                         <!-- Combined Phone/FAX number line -->
                         <p><strong class="text-gray-800">電話番号／ＦＡＸ番号:</strong> ０４３−３７９−５８８０</p>
                         <!-- FAX number line removed as requested -->
-                        <p><strong class="text-gray-800">メールアドレス:</b> 【正式なものを後ほど設定】</p>
+                        <p><strong class="text-gray-800">メールアドレス:</b> xxxxxxxxx@outlook.jp</p>
                     </div>
                     <div class="bg-green-50 p-4 rounded-none mt-6">
                         <h3 class="text-xl font-semibold text-green-800 mb-2">アクセス</h3>
@@ -254,7 +255,7 @@
                         </div>
                         <div class="p-4 bg-green-50 rounded-none">
                             <p class="text-lg font-semibold text-green-800 mb-2">メールでのお問い合わせ</p>
-                            <a href="mailto:【正式なものを後ほど" class="text-xl font-bold text-green-700 hover:underline">【正式なものを後ほど設定】</a>
+                            <a href="mailto: xxxxxxxxx@outlook.jp" class="text-xl font-bold text-green-700 hover:underline">xxxxxxxxx@outlook.jp</a>
                         </div>
                     </div>
                 </div>

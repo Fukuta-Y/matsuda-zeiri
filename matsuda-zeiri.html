@@ -23,31 +23,82 @@
             /* Changed back to green gradient */
             background-image: linear-gradient(to right, #32cd32, #4CAF50); /* Lime Green to a slightly darker green */
         }
+        /* Base styles for all tab buttons */
+        .tab-button {
+            border: 1px solid #e0e0e0; /* A soft grey border for all tabs */
+            border-radius: 0; /* Make them completely square by default */
+            transition: all 0.3s ease-in-out; /* Smooth transitions for all properties */
+            padding: 0.5rem 1rem; /* Consistent padding for all buttons */
+            text-align: center; /* Center the text */
+            white-space: nowrap; /* Prevent text wrapping */
+            cursor: pointer; /* Indicate clickable */
+            /* Removed margin-bottom to make wrapped tabs stick together vertically */
+            flex-grow: 1; /* Allow buttons to grow to fill space */
+            flex-basis: auto; /* Allow buttons to shrink on smaller screens */
+            /* Negative horizontal margins to make borders overlap, creating a connected look */
+            margin-left: -1px;
+            margin-right: -1px;
+        }
+        /* Styles for non-active links, mimicking text links */
         .nav-link {
-            /* Basic styling for non-active links, mimicking text links */
             color: #4a5568; /* Gray text for inactive links */
-            border-bottom: 2px solid transparent; /* Subtle underline for hover/active */
+            background-color: #f7fafc; /* Very light background for inactive tabs */
         }
         .nav-link:hover {
             color: #32cd32; /* Green on hover */
-            border-color: #32cd32;
+            border-color: #32cd32; /* Border color changes on hover */
+            background-color: #e6ffe6; /* Lighter green background on hover */
         }
+        /* Darker green for active tab, with clear borders and shadow */
         .tab-button.active {
-            /* Darker green for active tab, with bottom border for modern look */
             color: #228B22; /* Forest Green text */
             font-weight: 700; /* Bold active text */
-            border-bottom: 2px solid #228B22; /* Solid line under active tab */
-            background-color: transparent; /* Transparent background for active tab */
+            background-color: #ffffff; /* White background for active tab, matching content */
+            border: 1px solid #228B22; /* Stronger border for active tab */
+            border-bottom-color: #ffffff; /* Make bottom border transparent to blend with content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow for active tab */
+            position: relative; /* For z-index if needed for overlap effects */
+            z-index: 10; /* Bring active tab to front slightly */
+            margin-bottom: -1px; /* Pull the content area up to connect seamlessly */
         }
         .section-bg {
             background-color: white;
-            /* Removed border-radius for a sharper, square look */
-            border-radius: 0;
+            border-radius: 0; /* Ensures content section is square */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            /* Consistent vertical padding for content within the section */
+            padding-top: 1.5rem; /* py-6 */
+            padding-bottom: 1.5rem; /* py-6 */
         }
         .contact-info {
             font-size: 1.1rem;
             font-weight: 600;
+        }
+        /* Ensure normal font weight and size for paragraphs within tab content */
+        .tab-content p {
+            font-weight: normal; /* Ensure normal weight for paragraphs */
+            font-size: 1rem; /* Ensure consistent base font size */
+        }
+        /* Responsive adjustments for navigation */
+        .nav-tabs-wrapper {
+            justify-content: center;
+            gap: 0px; /* Remove gap to make them stick together */
+        }
+        /* Re-add rounded corners for the very first and last tab of the entire block */
+        .tab-button:first-child {
+            margin-left: 0; /* Remove negative margin for the first button */
+            border-top-left-radius: 0.375rem; /* rounded-md */
+            border-bottom-left-radius: 0.375rem;
+        }
+        .tab-button:last-child {
+            margin-right: 0; /* Remove negative margin for the last button */
+            border-top-right-radius: 0.375rem; /* rounded-md */
+            border-bottom-right-radius: 0.375rem;
+        }
+
+        @media (min-width: 768px) {
+            .tab-button {
+                margin-bottom: 0; /* No vertical margin needed on larger screens */
+            }
         }
     </style>
 </head>
@@ -61,156 +112,162 @@
         </header>
 
         <!-- Navigation Tabs -->
-        <nav class="bg-white p-4 border-b border-gray-200">
-            <div class="flex flex-wrap justify-center gap-x-2">
-                <button class="tab-button nav-link active px-2 py-2 rounded-md text-sm md:text-base transition-colors duration-200" data-tab="home">ご挨拶</button>
-                <button class="tab-button nav-link px-2 py-2 rounded-md text-sm md:text-base transition-colors duration-200" data-tab="services">業務案内</button>
-                <button class="tab-button nav-link px-2 py-2 rounded-md text-sm md:text-base transition-colors duration-200" data-tab="about">事務所案内</button>
-                <button class="tab-button nav-link px-2 py-2 rounded-md text-sm md:text-base transition-colors duration-200" data-tab="profile">経歴・職歴</button>
-                <button class="tab-button nav-link px-2 py-2 rounded-md text-sm md:text-base transition-colors duration-200" data-tab="fees">ご利用料金</button>
-                <button class="tab-button nav-link px-2 py-2 rounded-md text-sm md:text-base transition-colors duration-200" data-tab="contact">お問い合わせ</button>
-                <button class="tab-button nav-link px-2 py-2 rounded-md text-sm md:text-base transition-colors duration-200" data-tab="recruit">採用情報</button>
+        <nav class="bg-white px-6 pt-4">
+            <!-- flex-wrap to allow buttons to wrap on smaller screens -->
+            <div class="flex flex-wrap justify-center nav-tabs-wrapper">
+                <button class="tab-button nav-link active text-sm md:text-base transition-colors duration-200" data-tab="home">ご挨拶</button>
+                <button class="tab-button nav-link text-sm md:text-base transition-colors duration-200" data-tab="services">業務案内</button>
+                <button class="tab-button nav-link text-sm md:text-base transition-colors duration-200" data-tab="about">事務所案内</button>
+                <button class="tab-button nav-link text-sm md:text-base transition-colors duration-200" data-tab="profile">経歴・職歴</button>
+                <button class="tab-button nav-link text-sm md:text-base transition-colors duration-200" data-tab="fees">ご利用料金</button>
+                <button class="tab-button nav-link text-sm md:text-base transition-colors duration-200" data-tab="contact">お問い合わせ</button>
+                <button class="tab-button nav-link text-sm md:text-base transition-colors duration-200" data-tab="recruit">採用情報</button>
             </div>
         </nav>
 
         <!-- Main Content Area -->
-        <main class="p-6 md:p-8">
+        <main class="px-6 pb-6 md:pb-8">
             <!-- Home Tab Content -->
-            <section id="home" class="tab-content active section-bg p-6 mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご挨拶</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
-                    当事務所は、令和５年１１月に国税ＯＢが開業した相続税専門の税理士事務所です。<br><br>
-                    令和５年７月　税務署資産課税部門統括国税調査官を最後に国税の職場を早期退職いたしました。
-                    国税職員としての約３６年間のうち２７年間を資産課税部門（相続税・贈与税・譲渡所得）の事務（内部事務、調査事務、審理事務、納税猶予事務、不服審査事務等）に従事しました。<br><br>
-                    今後は、これまでの経験を活かし、相続税専門の税理士として社会に貢献できればと思っておりますので、相続税のご相談などありましたら、お気軽にご連絡ください。
-                </p>
+            <section id="home" class="tab-content active section-bg mb-8">
+                <div class="px-4"> <!-- Added inner padding for text content -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご挨拶</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        当事務所は、令和５年１１月に国税ＯＢが開業した相続税専門の税理士事務所です。<br><br>
+                        令和５年７月　税務署資産課税部門統括国税調査官を最後に国税の職場を早期退職いたしました。
+                        国税職員としての約３６年間のうち２７年間を資産課税部門（相続税・贈与税・譲渡所得）の事務（内部事務、調査事務、審理事務、納税猶予事務、不服審査事務等）に従事しました。<br><br>
+                        今後は、これまでの経験を活かし、相続税専門の税理士として社会に貢献できればと思っておりますので、相続税のご相談などありましたら、お気軽にご連絡ください。
+                    </p>
+                </div>
             </section>
 
             <!-- Services Tab Content -->
-            <section id="services" class="tab-content section-bg p-6 mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">業務案内</h2>
-                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">資産税（相続税等）専門</h3>
-                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6 ml-4">
-                    <li>面接相談業務</li>
-                    <li>相続税申告書作成業務</li>
-                    <li>贈与税申告書作成業務</li>
-                    <li>譲渡所得申告書作成業務</li>
-                </ul>
+            <section id="services" class="tab-content section-bg mb-8">
+                <div class="px-4"> <!-- Added inner padding for text content -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">業務案内</h2>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">資産税（相続税等）専門</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6 ml-4">
+                        <li>面接相談業務</li>
+                        <li>相続税申告書作成業務</li>
+                        <li>贈与税申告書作成業務</li>
+                        <li>譲渡所得申告書作成業務</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- About Us Tab Content -->
-            <section id="about" class="tab-content section-bg p-6 mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">事務所案内</h2>
-                <div class="space-y-2 text-gray-700 mb-6">
-                    <p><strong class="text-gray-800">事務所名:</strong> 松田和雄税理士事務所</p>
-                    <p><strong class="text-800">代表者名:</strong> 税理士　松田和雄</p>
-                    <!-- Address with line break and updated format -->
-                    <p><strong class="text-gray-800">所在地:</strong> 〒２６０−００４２<br>千葉県千葉市中央区椿森５丁目４番５号</p>
-                    <!-- Combined Phone/FAX number line -->
-                    <p><strong class="text-gray-800">電話番号／ＦＡＸ番号:</strong> ０４３−３７９−５８８０</p>
-                    <!-- FAX number line removed as requested -->
-                    <p><strong class="text-gray-800">メールアドレス:</strong> 【正式なものを後ほど設定】</p>
-                </div>
-                <div class="bg-green-50 p-4 rounded-none mt-6">
-                    <h3 class="text-xl font-semibold text-green-800 mb-2">アクセス</h3>
-                    <p class="text-green-700">ＪＲ総武本線東千葉駅　徒歩５分</p>
-                    <div class="mt-4 p-4 bg-white border border-green-200 rounded-none text-center text-gray-500">
-                        <!-- Google Maps embed for the office location -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.3835934047406!2d140.11930987578495!3d35.61826887260763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602284c7821a4a5b%3A0x695b7a20ad715e8f!2z44CSMjYwLTAwNDIg5Y2D6JGJ55yM5Y2D6JGJ5biC5Lit5aSu5Yy65qS_5qOu77yV5LiB55uu77yU4oiS77yV!5e0!3m2!1sja!2sjp!4v1750568275813!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <section id="about" class="tab-content section-bg mb-8">
+                <div class="px-4"> <!-- Added inner padding for text content -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">事務所案内</h2>
+                    <div class="space-y-2 text-gray-700 mb-6">
+                        <p><strong class="text-gray-800">事務所名:</strong> 松田和雄税理士事務所</p>
+                        <p><strong class="text-800">代表者名:</strong> 税理士　松田和雄</p>
+                        <!-- Address with line break and updated format -->
+                        <p><strong class="text-gray-800">所在地:</strong> 〒２６０−００４２<br>千葉県千葉市中央区椿森５丁目４番５号</p>
+                        <!-- Combined Phone/FAX number line -->
+                        <p><strong class="text-gray-800">電話番号／ＦＡＸ番号:</strong> ０４３−３７９−５８８０</p>
+                        <!-- FAX number line removed as requested -->
+                        <p><strong class="text-gray-800">メールアドレス:</b> 【正式なものを後ほど設定】</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-none mt-6">
+                        <h3 class="text-xl font-semibold text-green-800 mb-2">アクセス</h3>
+                        <p class="text-green-700">ＪＲ総武本線東千葉駅　徒歩５分</p>
+                        <div class="mt-4 p-4 bg-white border border-green-200 rounded-none text-center text-gray-500">
+                            <!-- Google Maps embed for the office location -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.3835934047406!2d140.11930987578495!3d35.61826887260763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602284c7821a4a5b%3A0x695b7a20ad715e8f!2z44CSMjYwLTAwNDIg5Y2D6JGJ55yM5Y2D6JGJ5biC5Lit5aSu5Yy65qS_5qOu77yV5LiB55uu77yU4oiS77yV!5e0!3m2!1sja!2sjp!4v1750568275813!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
             </section>
-            
+
             <!-- Profile Tab Content -->
-            <section id="profile" class="tab-content section-bg p-6 mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">経歴・職歴</h2>
-                <div class="md:flex md:flex-row md:items-start md:space-x-8">
-                    <div class="flex-shrink-0 mb-6 md:mb-0 md:w-1/3">
-                        <!-- Placeholder image for the tax accountant's photo -->
-                        <img src="images/matsuda.jpg" alt="松田和雄税理士の画像" class="rounded-lg shadow-md max-w-full h-auto w-64 md:w-full object-cover">
-                    </div>
-                    <!-- Removed md:flex and md:space-x-8 to make it stack vertically on all screens -->
-                    <div class="w-full md:w-2/3"> 
-                        <div class="mb-6"> <!-- Ensured margin-bottom for spacing between sections -->
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">経歴</h3>
-                            <ul class="list-disc list-inside space-y-1 ml-4">
-                                <li>１９６６年６月 長崎県島原市生まれ</li>
-                                <li>１９８５年３月 長崎県立島原高等学校卒業</li>
-                                <li>１９９２年３月 専修大学商学部卒業</li>
-                            </ul>
+            <section id="profile" class="tab-content section-bg mb-8">
+                <div class="px-4"> <!-- Added inner padding for text content -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">経歴・職歴</h2>
+                    <div class="md:flex md:flex-row md:items-start md:space-x-8">
+                        <div class="flex-shrink-0 mb-6 md:mb-0 md:w-1/3">
+                            <!-- Placeholder image for the tax accountant's photo -->
+                            <img src="images/matsuda.jpg" alt="松田和雄税理士の画像" class="rounded-lg shadow-md max-w-full h-auto w-64 md:w-full object-cover">
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">職歴</h3>
-                            <ul class="list-disc list-inside space-y-1 ml-4">
-                                <li>１９８６年４月 農林水産省長崎食糧事務所採用</li>
-                                <li>１９８７年２月 一身上の都合により辞職</li>
-                                <li>１９８７年４月 国税庁福岡国税局採用</li>
-                                <li>２０２３年７月 一身上の都合により辞職</li>
-                                <li>２０２３年１１月 税理士登録</li>
-                            </ul>
+                        <div class="w-full md:w-2/3">
+                            <div class="mb-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">経歴</h3>
+                                <ul class="list-disc list-inside space-y-1 ml-4">
+                                    <li>１９６６年６月 長崎県島原市生まれ</li>
+                                    <li>１９８５年３月 長崎県立島原高等学校卒業</li>
+                                    <li>１９９２年３月 専修大学商学部卒業</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">職歴</h3>
+                                <ul class="list-disc list-inside space-y-1 ml-4">
+                                    <li>１９８６年４月 農林水産省長崎食糧事務所採用</li>
+                                    <li>１９８７年２月 一身上の都合により辞職</li>
+                                    <li>１９８７年４月 国税庁福岡国税局採用</li>
+                                    <li>２０２３年７月 一身上の都合により辞職</li>
+                                    <li>２０２３年１１月 税理士登録</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Fees Tab Content -->
-            <section id="fees" class="tab-content section-bg p-6 mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご利用料金</h2>
-                <div class="space-y-6 text-gray-700">
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">面接相談報酬</h3>
-                        <!-- Removed text-base and md:text-lg from the li tag -->
-                        <li class="ml-4 list-none">１１,０００円（消費税込）</li>
-                        <!-- Removed text-base and md:text-lg from the p tag -->
-                        <p class="ml-4 font-medium">ただし、初回無料</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">相続税申告報酬</h3>
-                        <!-- Removed text-base and md:text-lg from the p tag -->
-                        <p class="ml-4">遺産価格の１.１％（消費税込）</p>
-                        <!-- Removed text-base and md:text-lg from the p tag -->
-                        <p class="ml-4 text-gray-600">※相続財産の種類や相続人数等により報酬の金額を計算します。</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">贈与税申告報酬</h3>
-                        <!-- Removed text-base and md:text-lg from the p tag -->
-                        <p class="ml-4">申告の内容により異なります。</p>
-                        <!-- Removed text-base and md:text-lg from the p tag -->
-                        <p class="ml-4 text-gray-600">事前にお見積りいたします。</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">譲渡所得申告報酬</h3>
-                        <!-- Removed text-base and md:text-lg from the p tag -->
-                        <p class="ml-4">申告の内容により異なります。</p>
-                        <!-- Removed text-base and md:text-lg from the p tag -->
-                        <p class="ml-4 text-gray-600">事前にお見積りいたします。</p>
+            <section id="fees" class="tab-content section-bg mb-8">
+                <div class="px-4"> <!-- Added inner padding for text content -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご利用料金</h2>
+                    <div class="space-y-6 text-gray-700">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">面接相談報酬</h3>
+                            <li class="ml-4 list-none">１１,０００円（消費税込）</li>
+                            <p class="ml-4 font-medium">ただし、初回無料</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">相続税申告報酬</h3>
+                            <p class="ml-4">遺産価格の１.１％（消費税込）</p>
+                            <p class="ml-4 text-gray-600">※相続財産の種類や相続人数等により報酬の金額を計算します。</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">贈与税申告報酬</h3>
+                            <p class="ml-4">申告の内容により異なります。</p>
+                            <p class="ml-4 text-gray-600">事前にお見積りいたします。</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">譲渡所得申告報酬</h3>
+                            <p class="ml-4">申告の内容により異なります。</p>
+                            <p class="ml-4 text-gray-600">事前にお見積りいたします。</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Contact Tab Content -->
-            <section id="contact" class="tab-content section-bg p-6 mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">お問い合わせ</h2>
-                <p class="text-gray-700 mb-6">相続税に関するご相談などありましたら、お気軽にご連絡ください。</p>
+            <section id="contact" class="tab-content section-bg mb-8">
+                <div class="px-4"> <!-- Added inner padding for text content -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">お問い合わせ</h2>
+                    <p class="text-gray-700 mb-6">相続税に関するご相談などありましたら、お気軽にご連絡ください。</p>
 
-                <div class="mt-8 pt-8 border-t border-gray-200 text-center space-y-6">
-                    <div class="p-4 bg-green-50 rounded-none">
-                        <p class="text-lg font-semibold text-green-800 mb-2">お電話でのお問い合わせ</p>
-                        <a href="tel:043-379-5880" class="text-4xl font-bold text-green-700 hover:underline">０４３−３７９−５８８０</a>
-                    </div>
-                    <div class="p-4 bg-green-50 rounded-none">
-                        <p class="text-lg font-semibold text-green-800 mb-2">メールでのお問い合わせ</p>
-                        <a href="mailto:【正式なものを後ほど" class="text-xl font-bold text-green-700 hover:underline">【正式なものを後ほど設定】</a>
+                    <div class="mt-8 pt-8 border-t border-gray-200 text-center space-y-6">
+                        <div class="p-4 bg-green-50 rounded-none">
+                            <p class="text-lg font-semibold text-green-800 mb-2">お電話でのお問い合わせ</p>
+                            <a href="tel:043-379-5880" class="text-4xl font-bold text-green-700 hover:underline">０４３−３７９−５８８０</a>
+                        </div>
+                        <div class="p-4 bg-green-50 rounded-none">
+                            <p class="text-lg font-semibold text-green-800 mb-2">メールでのお問い合わせ</p>
+                            <a href="mailto:【正式なものを後ほど" class="text-xl font-bold text-green-700 hover:underline">【正式なものを後ほど設定】</a>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- New Recruitment Tab Content -->
-            <section id="recruit" class="tab-content section-bg p-6 mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">採用情報</h2>
-                <p class="text-gray-700 leading-relaxed text-center text-xl md:text-2xl font-semibold py-8">
-                    只今、採用は行っておりません。
-                </p>
+            <section id="recruit" class="tab-content section-bg mb-8">
+                <div class="px-4"> <!-- Added inner padding for text content -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">採用情報</h2>
+                    <p class="text-gray-700 leading-relaxed text-center text-xl md:text-2xl font-semibold py-8">
+                        只今、採用は行っておりません。
+                    </p>
+                </div>
             </section>
         </main>
 
@@ -228,27 +285,26 @@
             // Tab switching logic
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // Remove active styles from all buttons
+                    // Remove 'active' class from all buttons and add 'nav-link' for inactive state
                     tabButtons.forEach(btn => {
                         btn.classList.remove('active');
-                        btn.classList.add('nav-link'); // Add nav-link class for inactive state
-                        btn.classList.remove('font-bold', 'border-b-2'); // Clean up active styles
-                        btn.style.borderColor = 'transparent'; // Ensure border is transparent for inactive
+                        btn.classList.add('nav-link');
                     });
+
+                    // Add 'active' class to the clicked button and remove 'nav-link'
+                    button.classList.add('active');
+                    button.classList.remove('nav-link');
+
                     // Hide all tab contents
                     tabContents.forEach(content => content.classList.remove('active'));
 
-                    // Add active styles to the clicked button
-                    button.classList.add('active'); // Just add active class
-                    button.classList.remove('nav-link'); // Remove nav-link class
-                    
                     // Show the target tab content
                     const targetTab = button.dataset.tab;
                     document.getElementById(targetTab).classList.add('active');
                 });
             });
 
-            // Set initial active state for the "ホーム" tab
+            // Set initial active state for the "ご挨拶" tab
             document.querySelector('.tab-button[data-tab="home"]').click();
         });
     </script>

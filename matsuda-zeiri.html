@@ -83,16 +83,16 @@
             justify-content: center;
             gap: 0px; /* Remove gap to make them stick together */
         }
-        /* Re-add rounded corners for the very first and last tab of the entire block */
+        /* Removed rounded corners for the very first and last tab of the entire block */
         .tab-button:first-child {
             margin-left: 0; /* Remove negative margin for the first button */
-            border-top-left-radius: 0.375rem; /* rounded-md */
-            border-bottom-left-radius: 0.375rem;
+            border-top-left-radius: 0; /* Removed rounded-md */
+            border-bottom-left-radius: 0; /* Removed rounded-md */
         }
         .tab-button:last-child {
             margin-right: 0; /* Remove negative margin for the last button */
-            border-top-right-radius: 0.375rem; /* rounded-md */
-            border-bottom-right-radius: 0.375rem;
+            border-top-right-radius: 0; /* Removed rounded-md */
+            border-bottom-right-radius: 0; /* Removed rounded-md */
         }
 
         @media (min-width: 768px) {

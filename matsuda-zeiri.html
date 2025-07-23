@@ -105,6 +105,11 @@
         .grid-cols-custom {
             grid-template-columns: min-content 1fr; /* 日付部分を内容に合わせて最小幅にし、残りを本文に割り当てる */
         }
+        /* 事務所案内セクションのグリッド調整 */
+        .office-info-grid {
+            grid-template-columns: max-content 1fr; /* ラベルを内容に合わせて最大幅にし、残りを値に割り当てる */
+            gap: 0.5rem 1rem; /* 行と列のギャップ */
+        }
     </style>
 </head>
 <body class="bg-f0f2f5 font-inter">
@@ -140,14 +145,15 @@
                 <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご挨拶</h2>
                     <p class="text-gray-700 leading-relaxed mb-6">
-                        ホームページを閲覧していただきありがとうございます 
+                        ホームページを閲覧していただきありがとうございます。
                         当事務所は、令和５年１１月に国税ＯＢが開業した相続税専門の税理士事務所です<br><br>
-                        令和５年７月 税務署資産課税部門統括国税調査官を最後に国税の職場を早期退職いたしました
-                        国税職員としての約３６年間のうち２７年間を資産課税部門（相続税・贈与税・譲渡所得）の事務（内部事務、調査事務、審理事務、納税猶予事務、不服審査事務等）に従事しました<br><br>
-                        今後は、これまでの経験を活かし、相続税専門の税理士として社会に貢献できればと思っております<br>
-                        相続税のご相談などありましたら、お気軽にご連絡ください<br><br>
-                        <img src="images/matsuda.jpg" alt="松田和雄税理士の画像" class="rounded-lg shadow-md max-w-full h-auto w-48 md:w-2/3 object-cover">
+                        令和５年７月　税務署資産課税部門統括国税調査官を最後に国税の職場を早期退職いたしました。
+                        国税職員としての約３６年間のうち２７年間を資産課税部門（相続税・贈与税・譲渡所得）の事務（内部事務、調査事務、審理事務、納税猶予事務、不服審査事務等）に従事しました。<br><br>
+                        今後は、これまでの経験を活かし、相続税専門の税理士として社会に貢献できればと思っております。<br>相続税のご相談などありましたら、お気軽にご連絡ください。
                     </p>
+                    <div class="flex justify-start mt-6">
+                        <img src="images/matsuda.jpg" alt="松田和雄税理士の画像" class="rounded-lg shadow-md max-w-full h-auto w-24 md:w-1/6 object-cover">
+                    </div>
                 </div>
             </section>
 
@@ -193,7 +199,7 @@
                         <div class="font-bold text-gray-800 text-nowrap text-right">代表者名:</div><div>税理士 松田和雄</div>
                         <div class="font-bold text-gray-800 text-nowrap text-right">所在地:</div><div>〒２６０−００４２<br>千葉県千葉市中央区椿森５丁目４番５号</div>
                         <div class="font-bold text-gray-800 text-nowrap text-right">電話番号:</div><div>０４３−３７９−５８８０</div>
-                        <div class="font-bold text-gray-800 text-nowrap text-right">Email:</div><div>ＸＸＸＸＸＸ@outlook.jp</div>
+                        <div class="font-bold text-gray-800 text-nowrap text-right">Email:</div><div>xxxxxxxxx@outlook.jp</div>
                         <div class="font-bold text-gray-800 text-nowrap text-right">アクセス:</div><div>ＪＲ総武本線東千葉駅 徒歩５分</div>
                     </div>
                     <div class="mt-4 p-4 rounded-none text-center text-gray-500">
@@ -202,7 +208,6 @@
                     </div>
                 </div>
             </section>
-
 
             <!-- Profile Tab Content -->
             <section id="profile" class="tab-content section-bg mb-8">
@@ -272,7 +277,7 @@
             <section id="contact" class="tab-content section-bg mb-8">
                 <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">お問い合わせ</h2>
-                    <p class="text-gray-700 mb-6">相続税に関するご相談などありましたら、お気軽にご連絡ください </p>
+                    <p class="text-gray-700 mb-6">相続税に関するご相談などありましたら、お気軽にご連絡ください。</p>
 
                     <div class="mt-8 pt-8 border-t border-gray-200 text-center space-y-6">
                         <div class="p-4 bg-green-50 rounded-none">
@@ -281,7 +286,7 @@
                         </div>
                         <div class="p-4 bg-green-50 rounded-none">
                             <p class="text-lg font-semibold text-green-800 mb-2">メールでのお問い合わせ</p>
-                            <a href="mailto: xxxxxxxxx@outlook.jp" class="text-xl font-bold text-green-700 hover:underline" aria-label="Email xxxxxxxxx@outlook.jp">xxxxxxxxx@outlook.jp</a>
+                            <a href="mailto: xxxxxxxxx@outlook.jp" class="text-xl font-bold text-green-700 hover:underline" aria-label="メールアドレス xxxxxxxxx@outlook.jp">xxxxxxxxx@outlook.jp</a>
                         </div>
                     </div>
                 </div>
@@ -292,7 +297,7 @@
                 <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">採用情報</h2>
                     <p class="text-gray-700 leading-relaxed text-center text-xl md:text-2xl font-semibold py-8">
-                        只今、採用は行っておりません 
+                        只今、採用は行っておりません。
                     </p>
                 </div>
             </section>

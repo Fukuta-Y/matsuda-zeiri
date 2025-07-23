@@ -110,11 +110,6 @@
             grid-template-columns: max-content 1fr; /* ラベルを内容に合わせて最大幅にし、残りを値に割り当てる */
             gap: 0.5rem 1rem; /* 行と列のギャップ */
         }
-        /* 経歴・職歴セクションのグリッド調整 */
-        .career-history-grid {
-            grid-template-columns: max-content 1fr; /* 日付を内容に合わせて最大幅にし、残りを本文に割り当てる */
-            gap: 0.25rem 1rem; /* 行と列のギャップ */
-        }
     </style>
 </head>
 <body class="bg-f0f2f5 font-inter">
@@ -229,21 +224,21 @@
                         <div class="w-full md:w-2/3">
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2">経歴</h3>
-                                <div class="grid career-history-grid text-gray-700">
-                                    <div class="text-nowrap">・</div><div class="text-nowrap text-right">１９６６年６月</div><div>長崎県島原市生まれ</div>
-                                    <div class="text-nowrap">・</div><div class="text-nowrap text-right">１９８５年３月</div><div>長崎県立島原高等学校卒業</div>
-                                    <div class="text-nowrap">・</div><div class="text-nowrap text-right">１９９２年３月</div><div>専修大学商学部卒業</div>
-                                </div>
+                                <ul class="list-disc list-inside space-y-1 ml-4">
+                                    <li>１９６６年６月&nbsp; &nbsp; &nbsp; &nbsp;長崎県島原市生まれ</li>
+                                    <li>１９８５年３月&nbsp; &nbsp; &nbsp; &nbsp;長崎県立島原高等学校卒業</li>
+                                    <li>１９９２年３月&nbsp; &nbsp; &nbsp; &nbsp;専修大学商学部卒業</li>
+                                </ul>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2">職歴</h3>
-                                <div class="grid career-history-grid text-gray-700">
-                                    <div class="text-nowrap">・</div><div class="text-nowrap text-right">１９８６年４月</div><div>農林水産省長崎食糧事務所採用</div>
-                                    <div class="text-nowrap">・</div><div class="text-nowrap text-right">１９８７年２月</div><div>一身上の都合により辞職</div>
-                                    <div class="text-nowrap">・</div><div class="text-nowrap text-right">１９８７年４月</div><div>国税庁福岡国税局採用</div>
-                                    <div class="text-nowrap">・</div><div class="text-nowrap text-right">２０２３年７月</div><div>一身上の都合により辞職</div>
-                                    <div class="text-nowrap">・</div><div class="text-nowrap text-right">２０２３年１１月</div><div>税理士登録</div>
-                                </div>
+                                <ul class="list-disc list-inside space-y-1 ml-4">
+                                    <li>１９８６年４月&nbsp; &nbsp; &nbsp; &nbsp;農林水産省長崎食糧事務所採用</li>
+                                    <li>１９８７年２月&nbsp; &nbsp; &nbsp; &nbsp;一身上の都合により辞職</li>
+                                    <li>１９８７年４月&nbsp; &nbsp; &nbsp; &nbsp;国税庁福岡国税局採用</li>
+                                    <li>２０２３年７月&nbsp; &nbsp; &nbsp; &nbsp;一身上の都合により辞職</li>
+                                    <li>２０２３年１１月 税理士登録</li>
+                                </ul>
                             </div>
                         </div>
                     </div>

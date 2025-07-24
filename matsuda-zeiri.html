@@ -96,6 +96,10 @@
             grid-template-columns: max-content 1fr; /* ラベルを内容に合わせて最大幅にし、残りを値に割り当てる */
             gap: 0.5rem 1rem; /* 行と列のギャップ */
         }
+        /* 事務所案内の項目名を右揃えにしてコロンを揃える */
+        .office-info-grid > div:nth-child(odd) {
+            text-align: right;
+        }
     </style>
 </head>
 <body class="bg-f0f2f5 font-inter">
@@ -138,8 +142,9 @@
                         今後は、これまでの経験を活かし、相続税専門の税理士として社会に貢献できればと思っております<br>
                         相続税のご相談などありましたら、お気軽にご連絡ください
                     </p>
+                    <!-- 画像のサイズを大きく調整: w-32 for smaller screens, md:w-1/2 for medium screens -->
                     <div class="flex justify-start mt-6">
-                        <img src="images/matsuda.jpg" alt="松田和雄税理士の画像" class="rounded-lg shadow-md max-w-full h-auto w-24 md:w-1/3 object-cover">
+                        <img src="images/matsuda.jpg" alt="松田和雄税理士の画像" class="rounded-lg shadow-md max-w-full h-auto w-32 md:w-1/2 object-cover">
                     </div>
                 </div>
             </section>
@@ -182,11 +187,12 @@
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">事務所案内</h2>
                     <!-- グリッドコンテナでコロンの後ろを揃える -->
                     <div class="grid office-info-grid text-gray-700 mb-6">
+                        <!-- 各項目名を右揃えにするためにtext-align: rightを適用 -->
                         <div class="font-bold text-gray-800 text-nowrap">事務所名:</div><div>松田和雄税理士事務所</div>
                         <div class="font-bold text-gray-800 text-nowrap">代表者名:</div><div>税理士 松田和雄</div>
-                        <div class="font-bold text-gray-800 text-nowrap">所在地　:</div><div>〒２６０−００４２<br>千葉県千葉市中央区椿森５丁目４番５号</div>
+                        <div class="font-bold text-gray-800 text-nowrap">所在地:</div><div>〒２６０−００４２<br>千葉県千葉市中央区椿森５丁目４番５号</div>
                         <div class="font-bold text-gray-800 text-nowrap">電話番号:</div><div>０４３−３７９−５８８０</div>
-                        <div class="font-bold text-gray-800 text-nowrap">E-Mail　:</div><div>ＸＸＸＸＸＸ@outlook.jp</div>
+                        <div class="font-bold text-gray-800 text-nowrap">E-Mail:</div><div>ＸＸＸＸＸＸ@outlook.jp</div>
                         <div class="font-bold text-gray-800 text-nowrap">アクセス:</div><div>ＪＲ総武本線東千葉駅 徒歩５分</div>
                     </div>
                     <div class="mt-4 p-4 text-center text-gray-500">
@@ -201,8 +207,6 @@
                 <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">経歴・職歴</h2>
                     <div class="md:flex md:flex-row md:items-start md:space-x-8">
-                        <!-- Adjusted image container width to md:w-1/2 and image to w-full -->
-                        <!-- Adjusted text content width to md:w-1/2 -->
                         <div class="w-full md:w-1/2">
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2">経歴</h3>

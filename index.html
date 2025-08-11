@@ -3,55 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>松田和雄税理士事務所 | 相続税専門の税理士（千葉）</title>
-    <meta name="description" content="国税OB税理士が運営する千葉市の税理士事務所です。相続税申告をはじめ、贈与税、譲渡所得に関するご相談を承ります。初回相談無料。">
-    <meta name="keywords" content="税理士, 松田和雄, 相続税, 贈与税, 譲渡所得, 国税OB, 千葉市, 千葉県, 税理士事務所, 相続専門">
-    
+    <title>松田和雄税理士事務所</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Base font and background color */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5;
+            background-color: #f0f2f5; /* Light grey background */
         }
-        /* SEO対策: 全てのタブコンテンツを初期表示する */
+        /* Hide non-active tab content */
         .tab-content {
-            display: block !important;
-        }
-        /* SEO対策: JavaScriptを使わない場合に備え、タブボタンを非表示にする */
-        .tab-button-nav {
             display: none;
         }
-        .header-bg {
-            background-image: linear-gradient(to right, #32cd32, #4CAF50);
+        /* Show active tab content */
+        .tab-content.active {
+            display: block;
         }
+        /* Header and Footer Background - Green gradient */
+        .header-bg {
+            background-image: linear-gradient(to right, #32cd32, #4CAF50); /* Lime Green to a slightly darker green */
+        }
+        /* Base styles for all tab buttons */
+        .tab-button {
+            border: 1px solid #e0e0e0; /* A soft grey border for all tabs */
+            transition: all 0.3s ease-in-out; /* Smooth transitions for all properties */
+            padding: 0.5rem 1rem; /* Consistent padding for all buttons */
+            text-align: center; /* Center the text */
+            white-space: nowrap; /* Prevent text wrapping */
+            cursor: pointer; /* Indicate clickable */
+            flex-grow: 1; /* Allow buttons to grow to fill space */
+            flex-basis: auto; /* Allow buttons to shrink on smaller screens */
+            margin-left: -1px; /* Negative horizontal margins to make borders overlap */
+            margin-right: -1px;
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.25rem; /* sm:text-base */
+        }
+        /* Styles for non-active links, mimicking text links */
+        .nav-link {
+            color: #4a5568; /* Gray text for inactive links */
+            background-color: #f7fafc; /* Very light background for inactive tabs */
+        }
+        .nav-link:hover {
+            color: #32cd32; /* Green on hover */
+            border-color: #32cd32; /* Border color changes on hover */
+            background-color: #e6ffe6; /* Lighter green background on hover */
+        }
+        /* Darker green for active tab, with clear borders and shadow */
+        .tab-button.active {
+            color: #228B22; /* Forest Green text */
+            font-weight: 700; /* Bold active text */
+            background-color: #ffffff; /* White background for active tab, matching content */
+            border: 1px solid #228B22; /* Stronger border for active tab */
+            border-bottom-color: #ffffff; /* Make bottom border transparent to blend with content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow for active tab */
+            position: relative; /* For z-index if needed for overlap effects */
+            z-index: 10; /* Bring active tab to front slightly */
+            margin-bottom: -1px; /* Pull the content area up to connect seamlessly */
+        }
+        /* Styling for content sections */
         .section-bg {
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            padding: 1.5rem 0;
+            padding: 1.5rem 0; /* Consistent vertical padding for content within the section */
         }
+        /* Ensure normal font weight and size for paragraphs within tab content */
+        .tab-content p,
+        .tab-content ul li {
+            font-weight: normal; /* Ensure normal weight for paragraphs and list items */
+            font-size: 1rem; /* Ensure consistent base font size */
+        }
+        /* Responsive adjustments for navigation */
+        .nav-tabs-wrapper {
+            justify-content: center;
+            gap: 0px; /* Remove gap to make them stick together */
+        }
+
+        @media (min-width: 768px) {
+            .tab-button {
+                margin-bottom: 0; /* No vertical margin needed on larger screens */
+                font-size: 1rem; /* text-base for md screens */
+            }
+        }
+
+        /* グリッドの2列目を調整 */
         .grid-cols-custom {
-            grid-template-columns: min-content 1fr;
+            grid-template-columns: min-content 1fr; /* 日付部分を内容に合わせて最小幅にし、残りを本文に割り当てる */
         }
+        /* 事務所案内セクションのグリッド調整 */
         .office-info-grid {
-            grid-template-columns: max-content 1fr;
-            gap: 0.5rem 1rem;
+            grid-template-columns: max-content 1fr; /* ラベルを内容に合わせて最大幅にし、残りを値に割り当てる */
+            gap: 0.5rem 1rem; /* 行と列のギャップ */
         }
+        /* 事務所案内の項目名を右揃えにしてコロンを揃える */
         .office-info-grid > div:nth-child(odd) {
             text-align: right;
         }
     </style>
 </head>
 <body class="bg-f0f2f5 font-inter">
+    <!-- Main container for the website content -->
+    <!-- Changed max-w-4xl to max-w-5xl for a wider layout -->
     <div class="flex flex-col min-h-screen bg-white rounded-lg shadow-lg overflow-hidden max-w-5xl mx-auto my-8">
+        <!-- Header Section - flex-shrink-0 keeps it from shrinking -->
         <header class="header-bg text-white p-6 rounded-t-lg flex-shrink-0">
             <h1 class="text-3xl md:text-4xl font-bold text-white text-center mb-2">松田和雄税理士事務所</h1>
             <p class="text-xl md:text-2xl text-white text-center">(相続税専門 国税ＯＢ税理士）</p>
         </header>
 
-        <nav class="bg-white px-6 pt-4 flex-shrink-0 tab-button-nav">
+        <!-- Navigation Tabs - flex-shrink-0 keeps it from shrinking -->
+        <nav class="bg-white px-6 pt-4 flex-shrink-0">
+            <!-- flex-wrap to allow buttons to wrap on smaller screens -->
             <div class="flex flex-wrap justify-center nav-tabs-wrapper">
-                <button class="tab-button nav-link transition-colors duration-200" data-tab="home" aria-label="ご挨拶タブ">ご挨拶</button>
+                <button class="tab-button nav-link active transition-colors duration-200" data-tab="home" aria-label="ご挨拶タブ">ご挨拶</button>
                 <button class="tab-button nav-link transition-colors duration-200" data-tab="news" aria-label="お知らせ">お知らせ</button>
                 <button class="tab-button nav-link transition-colors duration-200" data-tab="services" aria-label="業務案内タブ">業務案内</button>
                 <button class="tab-button nav-link transition-colors duration-200" data-tab="about" aria-label="事務所案内タブ">事務所案内</button>
@@ -62,9 +127,12 @@
             </div>
         </nav>
 
+        <!-- Main Content Area - flex-grow makes it take available space, overflow-y-auto enables scrolling -->
         <main class="flex-grow overflow-y-auto pb-3 md:pb-8">
-            <section id="home" class="tab-content section-bg mb-8">
-                <div class="px-4 sm:px-6 lg:px-8">
+            <!-- All content sections are now within this scrollable main area -->
+            <!-- Home Tab Content -->
+            <section id="home" class="tab-content active section-bg mb-8">
+                <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご挨拶</h2>
                     <p class="text-gray-700 leading-relaxed mb-6">
                         ホームページを閲覧していただきありがとうございます<br>
@@ -75,15 +143,18 @@
                         相続税のご相談などありましたら、お気軽にご連絡ください
                     </p>
                     <div class="flex justify-start mt-6">
-                        <img src="images/matsuda.jpg" alt="松田和雄税理士のプロフィール画像" class="rounded-lg shadow-md max-w-full h-auto w-48 md:w-1/2 object-cover">
+                        <img src="images/matsuda.jpg" alt="松田和雄税理士の画像" class="rounded-lg shadow-md max-w-full h-auto w-48 md:w-1/2 object-cover">
                     </div>
                 </div>
             </section>
 
+            <!-- News Tab Content -->
             <section id="news" class="tab-content section-bg mb-8">
-                <div class="px-4 sm:px-6 lg:px-8">
+                <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">お知らせ</h2>
+                    <!-- グリッドコンテナで日付と本文を揃える -->
                     <div class="grid grid-cols-custom gap-x-4 text-gray-700 leading-relaxed">
+                        <!-- 各行を日付と本文に分けて配置し、marginBottomを追加 -->
                         <div class="text-nowrap mb-4">2025/08</div><div class="mb-4">ホームページをリニューアルしました</div>
                         <div class="text-nowrap mb-4">2025/08/08</div><div class="mb-4">千葉県税理士政治連盟 幹事 に就任しました</div>
                         <div class="text-nowrap mb-4">2025/06/16</div><div class="mb-4">千葉県税理士政治連盟千葉東支部 幹部 に就任しました</div>
@@ -95,10 +166,11 @@
                 </div>
             </section>
 
+            <!-- Services Tab Content -->
             <section id="services" class="tab-content section-bg mb-8">
-                <div class="px-4 sm:px-6 lg:px-8">
+                <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">業務案内</h2>
-                    <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">相続税・贈与税・譲渡所得専門</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">資産税（相続税等）専門</h3>
                     <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6 ml-4">
                         <li>面接相談業務</li>
                         <li>相続税申告書作成業務</li>
@@ -108,10 +180,13 @@
                 </div>
             </section>
 
+            <!-- About Us Tab Content -->
             <section id="about" class="tab-content section-bg mb-8">
-                <div class="px-4 sm:px-6 lg:px-8">
+                <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">事務所案内</h2>
+                    <!-- グリッドコンテナでコロンの後ろを揃える -->
                     <div class="grid office-info-grid text-gray-700 mb-6">
+                        <!-- 各項目名を右揃えにするためにtext-align: rightを適用 -->
                         <div class="font-bold text-gray-800 text-nowrap">事務所名:</div><div>松田和雄税理士事務所</div>
                         <div class="font-bold text-gray-800 text-nowrap">代表者名:</div><div>税理士 松田和雄</div>
                         <div class="font-bold text-gray-800 text-nowrap">所在地:</div><div>〒２６０−００４２<br>千葉県千葉市中央区椿森５丁目４番５号</div>
@@ -120,32 +195,34 @@
                         <div class="font-bold text-gray-800 text-nowrap">アクセス:</div><div>ＪＲ総武本線東千葉駅 徒歩５分</div>
                     </div>
                     <div class="mt-4 p-4 text-center text-gray-500">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.3835934047406!2d140.11930987578495!3d35.61826887260763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602284c7821a4a5b%3A0x695b7a20ad715e8f!2z44CSMjYwLTAwNDIg5Y2D6JGJ55yM5Y2D6JGJ5biC5Lit5aSu5Yy65qS_5qOu77yV5LiB55uu77yU4oiS77yV!5e0!3m2!1sja!2sjp!4v1750568275813!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="松田和雄税理士事務所の地図"></iframe>
+                        <!-- Google Maps embed for the office location -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.3835934047406!2d140.11930987578495!3d35.61826887260763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602284c7821a4a5b%3A0x695b7a20ad715e8f!2z44CSMjYwLTAwNDIg5Y2D6JGJ55yM5Y2D6JGJ5biC5Lit5aSu5Yy65qS_5qOu77yV5LiB55uu77yU4oiS77yV!5e0!3m2!1sja!2sjp!4v1750568275813!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="松田和雄税理士事務所 地図"></iframe>
                     </div>
                 </div>
             </section>
 
+            <!-- Profile Tab Content -->
             <section id="profile" class="tab-content section-bg mb-8">
-                <div class="px-4 sm:px-6 lg:px-8">
+                <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">経歴・職歴</h2>
                     <div class="md:flex md:flex-row md:items-start md:space-x-8">
                         <div class="w-full md:w-1/2">
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2">経歴</h3>
                                 <ul class="list-disc list-inside space-y-1 ml-4">
-                                    <li>１９６６年６月 長崎県島原市生まれ</li>
-                                    <li>１９８５年３月 長崎県立島原高等学校卒業</li>
-                                    <li>１９９２年３月 専修大学商学部卒業</li>
+                                    <li>１９６６年６月&nbsp; &nbsp; &nbsp; &nbsp;長崎県島原市生まれ</li>
+                                    <li>１９８５年３月&nbsp; &nbsp; &nbsp; &nbsp;長崎県立島原高等学校卒業</li>
+                                    <li>１９９２年３月&nbsp; &nbsp; &nbsp; &nbsp;専修大学商学部卒業</li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2">職歴</h3>
                                 <ul class="list-disc list-inside space-y-1 ml-4">
-                                    <li>１９８６年４月 農林水産省長崎食糧事務所採用</li>
-                                    <li>１９８７年２月 一身上の都合により辞職</li>
-                                    <li>１９８７年４月 国税庁福岡国税局採用</li>
-                                    <li>２０２３年７月 一身上の都合により辞職</li>
-                                    <li>２０２３年１１月 税理士登録</li>
+                                    <li>１９８６年４月&nbsp; &nbsp; &nbsp; &nbsp;農林水産省長崎食糧事務所採用</li>
+                                    <li>１９８７年２月&nbsp; &nbsp; &nbsp; &nbsp;一身上の都合により辞職</li>
+                                    <li>１９８７年４月&nbsp; &nbsp; &nbsp; &nbsp;国税庁福岡国税局採用</li>
+                                    <li>２０２３年７月&nbsp; &nbsp; &nbsp; &nbsp;一身上の都合により辞職</li>
+                                    <li>２０２３年１１月 &nbsp;&nbsp;税理士登録</li>
                                 </ul>
                             </div>
                         </div>
@@ -153,48 +230,42 @@
                 </div>
             </section>
 
+            <!-- Fees Tab Content -->
             <section id="fees" class="tab-content section-bg mb-8">
-                <div class="px-4 sm:px-6 lg:px-8">
+                <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご利用料金</h2>
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">面接相談報酬</h3>
-                        <li class="ml-4 list-none">１１,０００円（消費税込）</li>
-                        <p class="ml-4 font-medium">ただし、初回無料</p>
-                    </div><br>
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">相続税申告報酬</h3>
-                        <p class="ml-4">遺産価格の１.１％（消費税込）</p>
-                        <p class="ml-4">※相続財産の種類や相続人数等により報酬の金額を事前にお見積もりいたします</p>
-                        <p class="ml-4">（最低金額 ３３０,０００円）</p>
-                    </div><br>
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">贈与税申告報酬</h3>
-                        <p class="ml-4">１１,０００円〜（消費税込）</p>
-                        <p class="ml-4">財産内容により異なります</p>
-                        <p class="ml-4">事前にお見積りいたします</p>
-                    </div><br>
-                    <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">譲渡所得申告報酬</h3>
-                        <p class="ml-4">１１０,０００円〜（消費税込）</p>
-                        <p class="ml-4">譲渡内容により異なります</p>
-                        <p class="ml-4">事前にお見積りいたします</p>
-                    </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">面接相談報酬</h3>
+                            <li class="ml-4 list-none">１１,０００円（消費税込）</li>
+                            <p class="ml-4 font-medium">ただし、初回無料</p>
+                        </div><br>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">相続税申告報酬</h3>
+                            <p class="ml-4">遺産価格の１.１％（消費税込）</p>
+                            <p class="ml-4">※相続財産の種類や相続人数等により報酬の金額を事前にお見積もりいたします</p>
+                            <p class="ml-4">（最低金額 ３３０,０００円）</p>
+                        </div><br>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">贈与税申告報酬</h3>
+                            <p class="ml-4">１１,０００円〜（消費税込）</p>
+                            <p class="ml-4">財産内容により異なります</p>
+                            <p class="ml-4">事前にお見積りいたします</p>
+                        </div><br>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">譲渡所得申告報酬</h3>
+                            <p class="ml-4">１１０,０００円〜（消費税込）</p>
+                            <p class="ml-4">譲渡内容により異なります</p>
+                            <p class="ml-4">事前にお見積りいたします</p>
+                        </div>
                 </div>
             </section>
 
-            <section id="recruit" class="tab-content section-bg mb-8">
-                <div class="px-4 sm:px-6 lg:px-8">
-                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">採用情報</h2>
-                    <p class="text-gray-700 leading-relaxed text-center text-xl md:text-2xl font-semibold py-8">
-                        只今、採用は行っておりません
-                    </p>
-                </div>
-            </section>
-
+            <!-- Contact Tab Content -->
             <section id="contact" class="tab-content section-bg mb-8">
-                <div class="px-4 sm:px-6 lg:px-8">
+                <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">お問い合わせ</h2>
                     <p class="text-gray-700 mb-6">相続税に関するご相談などありましたら、お気軽にご連絡ください</p>
+
                     <div class="mt-8 pt-8 border-t border-gray-200 text-center space-y-6">
                         <div class="p-4 bg-green-50 rounded-lg">
                             <p class="text-lg font-semibold text-green-800 mb-2">お電話でのお問い合わせ</p>
@@ -207,12 +278,54 @@
                     </div>
                 </div>
             </section>
+
+            <!-- New Recruitment Tab Content -->
+            <section id="recruit" class="tab-content section-bg mb-8">
+                <div class="px-4 sm:px-6 lg:px-8"> <!-- Adjusted inner padding for text content -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">採用情報</h2>
+                    <p class="text-gray-700 leading-relaxed text-center text-xl md:text-2xl font-semibold py-8">
+                        只今、採用は行っておりません
+                    </p>
+                </div>
+            </section>
         </main>
 
+        <!-- Footer Section - flex-shrink-0 keeps it from shrinking -->
         <footer class="header-bg text-white text-center p-4 rounded-b-lg flex-shrink-0">
             <p>© ２０２５ 松田和雄税理士事務所. All rights reserved.</p>
         </footer>
     </div>
 
-    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            // Tab switching logic
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove 'active' class from all buttons and add 'nav-link' for inactive state
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.classList.add('nav-link');
+                    });
+
+                    // Add 'active' class to the clicked button and remove 'nav-link'
+                    button.classList.add('active');
+                    button.classList.remove('nav-link');
+
+                    // Hide all tab contents
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Show the target tab content
+                    const targetTab = button.dataset.tab;
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Set initial active state for the "ご挨拶" tab
+            document.querySelector('.tab-button[data-tab="home"]').click();
+        });
+    </script>
+</body>
 </html>

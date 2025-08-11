@@ -14,17 +14,56 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5;
         }
-        /* SEO対策: 全てのタブコンテンツを初期表示する */
+        /* 非アクティブなタブコンテンツを非表示 */
         .tab-content {
-            display: block !important;
-        }
-        /* SEO対策: JavaScriptを使わない場合に備え、タブボタンを非表示にする */
-        .tab-button-nav {
             display: none;
         }
+        /* アクティブなタブコンテンツを表示 */
+        .tab-content.active {
+            display: block;
+        }
+        /* ヘッダーとフッターの背景 */
         .header-bg {
             background-image: linear-gradient(to right, #32cd32, #4CAF50);
         }
+        /* タブボタンの基本スタイル */
+        .tab-button {
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease-in-out;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            white-space: nowrap;
+            cursor: pointer;
+            flex-grow: 1;
+            flex-basis: auto;
+            margin-left: -1px;
+            margin-right: -1px;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+        /* 非アクティブなタブボタンのスタイル */
+        .tab-button.nav-link {
+            color: #4a5568;
+            background-color: #f7fafc;
+        }
+        .tab-button.nav-link:hover {
+            color: #32cd32;
+            border-color: #32cd32;
+            background-color: #e6ffe6;
+        }
+        /* アクティブなタブボタンのスタイル */
+        .tab-button.active {
+            color: #228B22;
+            font-weight: 700;
+            background-color: #ffffff;
+            border: 1px solid #228B22;
+            border-bottom-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+            margin-bottom: -1px;
+        }
+        /* コンテンツセクションのスタイル */
         .section-bg {
             background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -49,21 +88,21 @@
             <p class="text-xl md:text-2xl text-white text-center">(相続税専門 国税ＯＢ税理士）</p>
         </header>
 
-        <nav class="bg-white px-6 pt-4 flex-shrink-0 tab-button-nav">
+        <nav class="bg-white px-6 pt-4 flex-shrink-0">
             <div class="flex flex-wrap justify-center nav-tabs-wrapper">
-                <button class="tab-button nav-link transition-colors duration-200" data-tab="home" aria-label="ご挨拶タブ">ご挨拶</button>
-                <button class="tab-button nav-link transition-colors duration-200" data-tab="news" aria-label="お知らせ">お知らせ</button>
-                <button class="tab-button nav-link transition-colors duration-200" data-tab="services" aria-label="業務案内タブ">業務案内</button>
-                <button class="tab-button nav-link transition-colors duration-200" data-tab="about" aria-label="事務所案内タブ">事務所案内</button>
-                <button class="tab-button nav-link transition-colors duration-200" data-tab="profile" aria-label="経歴・職歴タブ">経歴・職歴</button>
-                <button class="tab-button nav-link transition-colors duration-200" data-tab="fees" aria-label="ご利用料金タブ">ご利用料金</button>
-                <button class="tab-button nav-link transition-colors duration-200" data-tab="recruit" aria-label="採用情報タブ">採用情報</button>
-                <button class="tab-button nav-link transition-colors duration-200" data-tab="contact" aria-label="お問い合わせタブ">お問い合わせ</button>
+                <a href="#home" class="tab-button nav-link active transition-colors duration-200" data-tab="home" aria-label="ご挨拶タブ">ご挨拶</a>
+                <a href="#news" class="tab-button nav-link transition-colors duration-200" data-tab="news" aria-label="お知らせ">お知らせ</a>
+                <a href="#services" class="tab-button nav-link transition-colors duration-200" data-tab="services" aria-label="業務案内タブ">業務案内</a>
+                <a href="#about" class="tab-button nav-link transition-colors duration-200" data-tab="about" aria-label="事務所案内タブ">事務所案内</a>
+                <a href="#profile" class="tab-button nav-link transition-colors duration-200" data-tab="profile" aria-label="経歴・職歴タブ">経歴・職歴</a>
+                <a href="#fees" class="tab-button nav-link transition-colors duration-200" data-tab="fees" aria-label="ご利用料金タブ">ご利用料金</a>
+                <a href="#recruit" class="tab-button nav-link transition-colors duration-200" data-tab="recruit" aria-label="採用情報タブ">採用情報</a>
+                <a href="#contact" class="tab-button nav-link transition-colors duration-200" data-tab="contact" aria-label="お問い合わせタブ">お問い合わせ</a>
             </div>
         </nav>
 
         <main class="flex-grow overflow-y-auto pb-3 md:pb-8">
-            <section id="home" class="tab-content section-bg mb-8">
+            <section id="home" class="tab-content active section-bg mb-8">
                 <div class="px-4 sm:px-6 lg:px-8">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">ご挨拶</h2>
                     <p class="text-gray-700 leading-relaxed mb-6">
@@ -214,5 +253,47 @@
         </footer>
     </div>
 
-    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            const activateTab = (tabId) => {
+                // すべてのタブとコンテンツを非アクティブ化
+                tabButtons.forEach(btn => btn.classList.remove('active', 'nav-link'));
+                tabButtons.forEach(btn => btn.classList.add('nav-link'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // 指定されたタブとコンテンツをアクティブ化
+                const button = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+                const content = document.getElementById(tabId);
+                if (button && content) {
+                    button.classList.add('active');
+                    button.classList.remove('nav-link');
+                    content.classList.add('active');
+                }
+            };
+
+            // ページ読み込み時にURLハッシュを確認
+            const initialTab = window.location.hash ? window.location.hash.substring(1) : 'home';
+            activateTab(initialTab);
+
+            // タブクリック時の処理
+            tabButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault(); // デフォルトのアンカーリンク動作をキャンセル
+                    const targetTab = button.dataset.tab;
+                    window.history.pushState(null, null, `#${targetTab}`); // URLハッシュを更新
+                    activateTab(targetTab);
+                });
+            });
+
+            // URLハッシュが変更されたときの処理（ブラウザの「戻る」「進む」ボタンなど）
+            window.addEventListener('hashchange', () => {
+                const newTab = window.location.hash ? window.location.hash.substring(1) : 'home';
+                activateTab(newTab);
+            });
+        });
+    </script>
+</body>
 </html>
